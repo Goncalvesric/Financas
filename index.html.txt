@@ -224,14 +224,7 @@
         import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
-        const firebaseConfig = {
-  apiKey: "AIzaSyCvoXzw-cvFo4C8-T_XZnZZniDy2EP5seI",
-  authDomain: "controle-financeiro-48a44.firebaseapp.com",
-  projectId: "controle-financeiro-48a44",
-  storageBucket: "controle-financeiro-48a44.firebasestorage.app",
-  messagingSenderId: "607170128411",
-  appId: "1:607170128411:web:27a0f161f40fc01c5fa6be"
-} 
+        const firebaseConfig = typeof __firebase_config !== 'undefined' 
             ? JSON.parse(__firebase_config) 
             : { apiKey: "YOUR_API_KEY", authDomain: "YOUR_AUTH_DOMAIN", projectId: "YOUR_PROJECT_ID" };
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
@@ -513,7 +506,7 @@
         // Regista o Service Worker
         if ('serviceWorker' in navigator) {
           window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+            navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
               console.log('ServiceWorker registado com sucesso: ', registration.scope);
             }, function(err) {
               console.log('Registo do ServiceWorker falhou: ', err);
